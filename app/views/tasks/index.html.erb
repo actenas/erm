@@ -1,0 +1,31 @@
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<h1>Listing tasks</h1>
+
+<table>
+  <tr>
+    <th>Ticket</th>
+    <th>Message</th>
+    <th>Status</th>
+    <th>Invalid</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.ticket_id %></td>
+    <td><%= task.message %></td>
+    <td><%= task.status %></td>
+    <td><%= task.invalid %></td>
+    <td><%= link_to 'Show', task %></td>
+    <td><%= link_to 'Edit', edit_task_path(task) %></td>
+    <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Task', new_task_path %>
